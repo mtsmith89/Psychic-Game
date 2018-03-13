@@ -57,18 +57,21 @@ document.onkeyup = function(event) {
     letter = renderLetter();
     updateGuessed();
     updateRemaining();
+  } if (lettersGuessed.includes(" " + userInput + " ") === true) {
+    alert("You've already guessed that letter!");
+    return;
   } else if (userInput != letter, isLetter(userInput) != null) {
       console.log(isLetter(userInput));
     remaining--;
     updateRemaining();
     lettersGuessed.push(" " + userInput + " ");
-    updateGuessed();
+    updateGuessed();    
   }
 
   if (remaining === 0) {
     losses++;
     updateLosses();
-    alert("You Lose, Try Again!");
+    alert("You Lose, it was the letter " + letter + ". Try Again!");
     remaining = 10;
     lettersGuessed.length = 0;
     letter = renderLetter();
